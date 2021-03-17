@@ -17,7 +17,7 @@ if [[ ${NODES_UNSCHEDULABLE_SIZE} != '0' ]]; then
 fi
 
 # check nodes NOT (unscheduled and ready)
-NODES_NOT_SCHEDULED_OR_READY_SIZE=$(oc get nodes | awk 'FNR > 1 {if ($2!="Ready" && $2 !~ /SchedulingDisabled/)  print}' | wc -l | xargs)
+NODES_NOT_SCHEDULED_OR_READY_SIZE=$(oc get nodes --ignore-not-found | awk 'FNR > 1 {if ($2!="Ready" && $2 !~ /SchedulingDisabled/)  print}' | wc -l | xargs)
 
 if [[ ${NODES_NOT_SCHEDULED_OR_READY_SIZE} != '0' ]]; then
   TITLE="[NODES_NOT_SCHEDULED_OR_READY_SIZE] : ${NODES_NOT_SCHEDULED_OR_READY_SIZE}"
@@ -46,9 +46,18 @@ if [[ ${POD_NOT_RUNNIG_SIZE} != '0' ]]; then
   echo "${HEADER%;*}\n${BODY#*;}\n"
 fi
 
+for POD in $(oc get pods --field-selector=status.phase==!=Running --ignore-not-found | awk 'FNR > 1 {if ($3!="Completed") print $1}') ; do
+  TITLE="[POD_NAME] : ${POD}"
+  HEADER="=======\n${TITLE}\n-------;----------"
+  BODY=$(oc logs pod ${POD})
+  echo "${HEADER%;*}\n${BODY#*;}\n"
+done
+## loop all project Pods to get event
+#oc describe pod cakephp-ex-1-build | awk '/Events/{y=1;next}y'
+
 FOOTER="=======\n"
 echo $FOOTER
 ## Explorar status dos nodes
 #tail nodes <> not Ready
-#tail pods <> not Running | Completed
 #tail event
+#tail pods <> not Running | Completed
