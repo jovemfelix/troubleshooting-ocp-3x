@@ -1,0 +1,549 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Node
+  metadata:
+    annotations:
+      node.openshift.io/md5sum: 4f4fc364a21605074df57ba72bd9a85e
+      volumes.kubernetes.io/controller-managed-attach-detach: "true"
+    creationTimestamp: "2021-03-16T17:41:31Z"
+    labels:
+      beta.kubernetes.io/arch: amd64
+      beta.kubernetes.io/os: linux
+      kubernetes.io/hostname: infranode1.337c.internal
+      logging-infra-fluentd: "true"
+      node-role.kubernetes.io/infra: "true"
+      runtime: docker
+    name: infranode1.337c.internal
+    resourceVersion: "11390"
+    selfLink: /api/v1/nodes/infranode1.337c.internal
+    uid: d7f8cd2a-867e-11eb-9fab-0e81980b822d
+  spec: {}
+  status:
+    addresses:
+    - address: 192.168.0.34
+      type: InternalIP
+    - address: infranode1.337c.internal
+      type: Hostname
+    allocatable:
+      cpu: "8"
+      hugepages-1Gi: "0"
+      hugepages-2Mi: "0"
+      memory: 32676664Ki
+      pods: "250"
+    capacity:
+      cpu: "8"
+      hugepages-1Gi: "0"
+      hugepages-2Mi: "0"
+      memory: 32779064Ki
+      pods: "250"
+    conditions:
+    - lastHeartbeatTime: "2021-03-17T12:20:05Z"
+      lastTransitionTime: "2021-03-16T17:41:31Z"
+      message: kubelet has sufficient disk space available
+      reason: KubeletHasSufficientDisk
+      status: "False"
+      type: OutOfDisk
+    - lastHeartbeatTime: "2021-03-17T12:20:05Z"
+      lastTransitionTime: "2021-03-16T17:41:31Z"
+      message: kubelet has sufficient memory available
+      reason: KubeletHasSufficientMemory
+      status: "False"
+      type: MemoryPressure
+    - lastHeartbeatTime: "2021-03-17T12:20:05Z"
+      lastTransitionTime: "2021-03-16T17:41:31Z"
+      message: kubelet has no disk pressure
+      reason: KubeletHasNoDiskPressure
+      status: "False"
+      type: DiskPressure
+    - lastHeartbeatTime: "2021-03-17T12:20:05Z"
+      lastTransitionTime: "2021-03-16T17:41:31Z"
+      message: kubelet has sufficient PID available
+      reason: KubeletHasSufficientPID
+      status: "False"
+      type: PIDPressure
+    - lastHeartbeatTime: "2021-03-17T12:20:05Z"
+      lastTransitionTime: "2021-03-17T12:08:15Z"
+      message: kubelet is posting ready status
+      reason: KubeletReady
+      status: "True"
+      type: Ready
+    daemonEndpoints:
+      kubeletEndpoint:
+        Port: 10250
+    images:
+    - names:
+      - registry.redhat.io/openshift3/metrics-hawkular-metrics@sha256:35a8fc712700119a86de63f6685d1dda2dc92b7827641085c530192726df57ed
+      - registry.redhat.io/openshift3/metrics-hawkular-metrics:v3.11.43
+      sizeBytes: 1572282748
+    - names:
+      - registry.redhat.io/openshift3/ose-node@sha256:e27ac7a2530cb9524ef656e74a55af34c4c5ec638ad37ba2da8071eba60914c7
+      - registry.redhat.io/openshift3/ose-node:v3.11.43
+      sizeBytes: 1169729671
+    - names:
+      - registry.redhat.io/openshift3/ose-logging-kibana5@sha256:4d716d84558dfa99dfd7e240e72af84a16753058c94a7a054794a2a92debc6bb
+      - registry.redhat.io/openshift3/ose-logging-kibana5:v3.11.43
+      sizeBytes: 760789127
+    - names:
+      - registry.redhat.io/openshift3/ose-prometheus-operator@sha256:c9d8a7bfa61674eb673ea6c7515b0b1bb0276c6803262a2cbbbe195d42c293c0
+      - registry.redhat.io/openshift3/ose-prometheus-operator:v3.11.43
+      sizeBytes: 581831483
+    - names:
+      - registry.redhat.io/openshift3/metrics-cassandra@sha256:da7faef33588ec123d92e70884d6be5f856d199cc4d6e165dbc6ff47f4ccdb60
+      - registry.redhat.io/openshift3/metrics-cassandra:v3.11.43
+      sizeBytes: 564279284
+    - names:
+      - registry.redhat.io/openshift3/ose-logging-elasticsearch5@sha256:2e76a7d3ffbe99e04bc2f9bb8336101854bca4b26c2ff898d20f042187a8c15b
+      - registry.redhat.io/openshift3/ose-logging-elasticsearch5:v3.11.43
+      sizeBytes: 523133511
+    - names:
+      - registry.redhat.io/openshift3/ose-prometheus-config-reloader@sha256:3b1e71d5beab8e638634876fbf0571f6468d135a1abdfe83960b3d634478b264
+      - registry.redhat.io/openshift3/ose-prometheus-config-reloader:v3.11.43
+      sizeBytes: 509777960
+    - names:
+      - docker.io/sonatype/nexus3@sha256:c46f74741401ed538e94cc51a272a95efef5db60a9091d95f93d339fd09fa219
+      sizeBytes: 502392041
+    - names:
+      - registry.redhat.io/openshift3/grafana@sha256:a97640fee33493ee83c11e0bf63f23f675992235093670605eea60e51070f908
+      - registry.redhat.io/openshift3/grafana:v3.11.43
+      sizeBytes: 500765385
+    - names:
+      - registry.redhat.io/openshift3/ose-kube-rbac-proxy@sha256:c39eda4bd9f128142d32cc613d18f5cdf329b66284e44e8eb2af5c8ca3b17be0
+      - registry.redhat.io/openshift3/ose-kube-rbac-proxy:v3.11.43
+      sizeBytes: 487282756
+    - names:
+      - registry.redhat.io/openshift3/ose-ansible-service-broker@sha256:a3d28a921bd220668f0114a1b4636f5274d2aeb92bbe4fb2d088e9acea2d1200
+      - registry.redhat.io/openshift3/ose-ansible-service-broker:v3.11.43
+      sizeBytes: 456866890
+    - names:
+      - registry.redhat.io/openshift3/ose-cluster-monitoring-operator@sha256:1f8da26168eed469a935655d128bd60a31d76876275b124b41ab1dffce4f6b38
+      - registry.redhat.io/openshift3/ose-cluster-monitoring-operator:v3.11.43
+      sizeBytes: 455521650
+    - names:
+      - registry.redhat.io/openshift3/ose-kube-state-metrics@sha256:d73b6a89392ef0ef91d4ada35f7015812794e5a016dc4a29e97a3efcfc76819f
+      - registry.redhat.io/openshift3/ose-kube-state-metrics:v3.11.43
+      sizeBytes: 442183923
+    - names:
+      - registry.redhat.io/openshift3/ose-configmap-reloader@sha256:ce4656b6ebdc7d5af9f3e6c290b137bfcd194508f8fe7ef93fa6aceb14707f00
+      - registry.redhat.io/openshift3/ose-configmap-reloader:v3.11.43
+      sizeBytes: 387839404
+    - names:
+      - registry.redhat.io/openshift3/ose-haproxy-router@sha256:8ee644382ebeef9208b75f693bfc401b813056f79718fadb9ebd0a6877b1b3a2
+      - registry.redhat.io/openshift3/ose-haproxy-router:v3.11.43
+      sizeBytes: 378954718
+    - names:
+      - registry.redhat.io/openshift3/ose-deployer@sha256:59861ddd9f7563c79769969a70695cc2e64440cd98f5e191823fc79ff02f2dae
+      - registry.redhat.io/openshift3/ose-deployer:v3.11.43
+      sizeBytes: 361135937
+    - names:
+      - registry.redhat.io/openshift3/ose-logging-fluentd@sha256:7602ff09101a454ea077ca736388fb6a5cc69e8b43c2bb4fa3f8fbe13ec55499
+      - registry.redhat.io/openshift3/ose-logging-fluentd:v3.11.43
+      sizeBytes: 288748354
+    - names:
+      - registry.redhat.io/openshift3/ose-docker-registry@sha256:e45d9731947216838e51b78f03f93edcf5c8446de596d7f083292bd5c6478162
+      - registry.redhat.io/openshift3/ose-docker-registry:v3.11.43
+      sizeBytes: 288122614
+    - names:
+      - registry.redhat.io/openshift3/metrics-heapster@sha256:241c2146369c821460fe86ffca60d9f29fda4a5d732097da78ba72d144cdc902
+      - registry.redhat.io/openshift3/metrics-heapster:v3.11.43
+      sizeBytes: 283735591
+    - names:
+      - registry.redhat.io/openshift3/prometheus@sha256:002e8fea5cecff231f93cbb518b484ad205fc882b67e979388d26af85548111b
+      - registry.redhat.io/openshift3/prometheus:v3.11.43
+      sizeBytes: 283127630
+    - names:
+      - registry.redhat.io/openshift3/ose-logging-eventrouter@sha256:211eaec6920072282e99e716335f1e8772e2030a2e2e1e1f0d76fbdb4236f203
+      - registry.redhat.io/openshift3/ose-logging-eventrouter:v3.11.43
+      sizeBytes: 241646267
+    - names:
+      - registry.redhat.io/openshift3/oauth-proxy@sha256:79597ad9f331bb84e7213b3f858b3d79c4f44aefcd6ed87b671078eeb43a2834
+      - registry.redhat.io/openshift3/oauth-proxy:v3.11.43
+      sizeBytes: 240695124
+    - names:
+      - registry.redhat.io/openshift3/ose-pod@sha256:12fe5af7f275eaca15d1a62fa90b79722052575a0d6884ba4dcfa7340e97d7de
+      - registry.redhat.io/openshift3/ose-pod:v3.11.43
+      sizeBytes: 238112029
+    - names:
+      - registry.redhat.io/openshift3/prometheus-alertmanager@sha256:68bb2a28cd04320ea4f9082fe9fb5ce058d5c98a675955acb4d590ddd23f24e1
+      - registry.redhat.io/openshift3/prometheus-alertmanager:v3.11.43
+      sizeBytes: 235957481
+    - names:
+      - registry.redhat.io/openshift3/ose-logging-curator5@sha256:6829b165d4ee849ab9f091a2c5bd299b801bdc986260543666c15be96355b7b1
+      - registry.redhat.io/openshift3/ose-logging-curator5:v3.11.43
+      sizeBytes: 230982776
+    - names:
+      - registry.redhat.io/openshift3/prometheus-node-exporter@sha256:8994a5cc30385e386b70e650e16726c82c42056b0915b0faa5e3109b31de6012
+      - registry.redhat.io/openshift3/prometheus-node-exporter:v3.11.43
+      sizeBytes: 224930707
+    nodeInfo:
+      architecture: amd64
+      bootID: bcc02cf6-040a-4bde-ba9d-da110ee2aee9
+      containerRuntimeVersion: docker://1.13.1
+      kernelVersion: 3.10.0-1062.12.1.el7.x86_64
+      kubeProxyVersion: v1.11.0+d4cacc0
+      kubeletVersion: v1.11.0+d4cacc0
+      machineID: eea799dae08f402aa621fe35f9958baf
+      operatingSystem: linux
+      osImage: Red Hat Enterprise Linux Server 7.7 (Maipo)
+      systemUUID: EC234C12-7550-E63C-3365-F3AF8EF775C4
+- apiVersion: v1
+  kind: Node
+  metadata:
+    annotations:
+      node.openshift.io/md5sum: 4ca2aff26ea7a44e489323c22b605f6f
+      volumes.kubernetes.io/controller-managed-attach-detach: "true"
+    creationTimestamp: "2021-03-16T17:37:46Z"
+    labels:
+      beta.kubernetes.io/arch: amd64
+      beta.kubernetes.io/os: linux
+      kubernetes.io/hostname: master1.337c.internal
+      logging-infra-fluentd: "true"
+      node-role.kubernetes.io/master: "true"
+      runtime: docker
+    name: master1.337c.internal
+    resourceVersion: "11383"
+    selfLink: /api/v1/nodes/master1.337c.internal
+    uid: 5216582a-867e-11eb-9fab-0e81980b822d
+  spec: {}
+  status:
+    addresses:
+    - address: 192.168.0.92
+      type: InternalIP
+    - address: master1.337c.internal
+      type: Hostname
+    allocatable:
+      cpu: "8"
+      hugepages-1Gi: "0"
+      hugepages-2Mi: "0"
+      memory: 32676664Ki
+      pods: "250"
+    capacity:
+      cpu: "8"
+      hugepages-1Gi: "0"
+      hugepages-2Mi: "0"
+      memory: 32779064Ki
+      pods: "250"
+    conditions:
+    - lastHeartbeatTime: "2021-03-17T12:20:01Z"
+      lastTransitionTime: "2021-03-16T17:37:46Z"
+      message: kubelet has sufficient disk space available
+      reason: KubeletHasSufficientDisk
+      status: "False"
+      type: OutOfDisk
+    - lastHeartbeatTime: "2021-03-17T12:20:01Z"
+      lastTransitionTime: "2021-03-16T17:37:46Z"
+      message: kubelet has sufficient memory available
+      reason: KubeletHasSufficientMemory
+      status: "False"
+      type: MemoryPressure
+    - lastHeartbeatTime: "2021-03-17T12:20:01Z"
+      lastTransitionTime: "2021-03-16T17:37:46Z"
+      message: kubelet has no disk pressure
+      reason: KubeletHasNoDiskPressure
+      status: "False"
+      type: DiskPressure
+    - lastHeartbeatTime: "2021-03-17T12:20:01Z"
+      lastTransitionTime: "2021-03-16T17:37:46Z"
+      message: kubelet has sufficient PID available
+      reason: KubeletHasSufficientPID
+      status: "False"
+      type: PIDPressure
+    - lastHeartbeatTime: "2021-03-17T12:20:01Z"
+      lastTransitionTime: "2021-03-17T12:08:10Z"
+      message: kubelet is posting ready status
+      reason: KubeletReady
+      status: "True"
+      type: Ready
+    daemonEndpoints:
+      kubeletEndpoint:
+        Port: 10250
+    images:
+    - names:
+      - registry.redhat.io/openshift3/ose-node@sha256:e27ac7a2530cb9524ef656e74a55af34c4c5ec638ad37ba2da8071eba60914c7
+      - registry.redhat.io/openshift3/ose-node:v3.11.43
+      sizeBytes: 1169729671
+    - names:
+      - registry.redhat.io/openshift3/ose-control-plane@sha256:adf53b055e13699154b6e084603b84e0ae7df8c33454e43e9530fd3eb5533977
+      - registry.redhat.io/openshift3/ose-control-plane:v3.11.43
+      sizeBytes: 806749850
+    - names:
+      - registry.redhat.io/openshift3/ose-kube-rbac-proxy@sha256:c39eda4bd9f128142d32cc613d18f5cdf329b66284e44e8eb2af5c8ca3b17be0
+      - registry.redhat.io/openshift3/ose-kube-rbac-proxy:v3.11.43
+      sizeBytes: 487282756
+    - names:
+      - registry.redhat.io/openshift3/ose-deployer@sha256:59861ddd9f7563c79769969a70695cc2e64440cd98f5e191823fc79ff02f2dae
+      - registry.redhat.io/openshift3/ose-deployer:v3.11.43
+      sizeBytes: 361135937
+    - names:
+      - registry.redhat.io/openshift3/ose-web-console@sha256:9d46a9048274c2362a7f1b58bbe852e6f529a316b88e7a79428011f572311aa8
+      - registry.redhat.io/openshift3/ose-web-console:v3.11.43
+      sizeBytes: 322156948
+    - names:
+      - registry.redhat.io/openshift3/ose-template-service-broker@sha256:b8707b79a17740ee53f86d30f7fe64a654386c26c4b81b01c94d6729e99addfe
+      - registry.redhat.io/openshift3/ose-template-service-broker:v3.11.43
+      sizeBytes: 312518051
+    - names:
+      - registry.redhat.io/openshift3/ose-service-catalog@sha256:b19d4a31efd415cc8acc72522798065b01f99dff2c7c701c6b4bcde4b2588fa7
+      - registry.redhat.io/openshift3/ose-service-catalog:v3.11.43
+      sizeBytes: 309300436
+    - names:
+      - registry.redhat.io/openshift3/ose-logging-fluentd@sha256:7602ff09101a454ea077ca736388fb6a5cc69e8b43c2bb4fa3f8fbe13ec55499
+      - registry.redhat.io/openshift3/ose-logging-fluentd:v3.11.43
+      sizeBytes: 288748354
+    - names:
+      - registry.redhat.io/rhel7/etcd@sha256:b4fc11073cc7a31bd8811b5b28494c44a7a9af21f5bd478313743ae6a84dd566
+      - registry.redhat.io/rhel7/etcd:3.2.22
+      sizeBytes: 259095300
+    - names:
+      - registry.redhat.io/openshift3/ose-console@sha256:6a1355fd126aef6be28ce103b5fa748fe1cfdc6e8b072a4bcbbc89cf8ee6431d
+      - registry.redhat.io/openshift3/ose-console:v3.11.43
+      sizeBytes: 253790280
+    - names:
+      - registry.redhat.io/openshift3/ose-pod@sha256:12fe5af7f275eaca15d1a62fa90b79722052575a0d6884ba4dcfa7340e97d7de
+      - registry.redhat.io/openshift3/ose-pod:v3.11.43
+      sizeBytes: 238112029
+    - names:
+      - registry.redhat.io/openshift3/registry-console@sha256:647b708078f2ca038c984c93c4861f0710f9135010e88a9a6dc2098719982929
+      - registry.redhat.io/openshift3/registry-console:v3.11.43
+      sizeBytes: 237270086
+    - names:
+      - registry.redhat.io/openshift3/prometheus-node-exporter@sha256:8994a5cc30385e386b70e650e16726c82c42056b0915b0faa5e3109b31de6012
+      - registry.redhat.io/openshift3/prometheus-node-exporter:v3.11.43
+      sizeBytes: 224930707
+    nodeInfo:
+      architecture: amd64
+      bootID: 03862dfb-3a50-4a57-b73c-53114b206147
+      containerRuntimeVersion: docker://1.13.1
+      kernelVersion: 3.10.0-1062.12.1.el7.x86_64
+      kubeProxyVersion: v1.11.0+d4cacc0
+      kubeletVersion: v1.11.0+d4cacc0
+      machineID: cd5e50f81d9b423ea5cd5622133db5d6
+      operatingSystem: linux
+      osImage: Red Hat Enterprise Linux Server 7.7 (Maipo)
+      systemUUID: EC20C575-3FE7-89B2-6037-E9E266F0DB50
+- apiVersion: v1
+  kind: Node
+  metadata:
+    annotations:
+      node.openshift.io/md5sum: 1a52031a4ff81d40a9ba251ee4b13e7c
+      volumes.kubernetes.io/controller-managed-attach-detach: "true"
+    creationTimestamp: "2021-03-16T17:41:30Z"
+    labels:
+      beta.kubernetes.io/arch: amd64
+      beta.kubernetes.io/os: linux
+      kubernetes.io/hostname: node1.337c.internal
+      logging-infra-fluentd: "true"
+      node-role.kubernetes.io/compute: "true"
+      runtime: docker
+    name: node1.337c.internal
+    resourceVersion: "11380"
+    selfLink: /api/v1/nodes/node1.337c.internal
+    uid: d7bc7e13-867e-11eb-9fab-0e81980b822d
+  spec: {}
+  status:
+    addresses:
+    - address: 192.168.0.98
+      type: InternalIP
+    - address: node1.337c.internal
+      type: Hostname
+    allocatable:
+      cpu: "8"
+      hugepages-1Gi: "0"
+      hugepages-2Mi: "0"
+      memory: 32676664Ki
+      pods: "160"
+    capacity:
+      cpu: "8"
+      hugepages-1Gi: "0"
+      hugepages-2Mi: "0"
+      memory: 32779064Ki
+      pods: "160"
+    conditions:
+    - lastHeartbeatTime: "2021-03-17T12:20:00Z"
+      lastTransitionTime: "2021-03-16T17:41:30Z"
+      message: kubelet has sufficient disk space available
+      reason: KubeletHasSufficientDisk
+      status: "False"
+      type: OutOfDisk
+    - lastHeartbeatTime: "2021-03-17T12:20:00Z"
+      lastTransitionTime: "2021-03-16T17:41:30Z"
+      message: kubelet has sufficient memory available
+      reason: KubeletHasSufficientMemory
+      status: "False"
+      type: MemoryPressure
+    - lastHeartbeatTime: "2021-03-17T12:20:00Z"
+      lastTransitionTime: "2021-03-16T17:41:30Z"
+      message: kubelet has no disk pressure
+      reason: KubeletHasNoDiskPressure
+      status: "False"
+      type: DiskPressure
+    - lastHeartbeatTime: "2021-03-17T12:20:00Z"
+      lastTransitionTime: "2021-03-16T17:41:30Z"
+      message: kubelet has sufficient PID available
+      reason: KubeletHasSufficientPID
+      status: "False"
+      type: PIDPressure
+    - lastHeartbeatTime: "2021-03-17T12:20:00Z"
+      lastTransitionTime: "2021-03-17T12:08:09Z"
+      message: kubelet is posting ready status
+      reason: KubeletReady
+      status: "True"
+      type: Ready
+    daemonEndpoints:
+      kubeletEndpoint:
+        Port: 10250
+    images:
+    - names:
+      - registry.redhat.io/openshift3/ose-node@sha256:e27ac7a2530cb9524ef656e74a55af34c4c5ec638ad37ba2da8071eba60914c7
+      - registry.redhat.io/openshift3/ose-node:v3.11.43
+      sizeBytes: 1169729671
+    - names:
+      - registry.redhat.io/openshift3/ose-kube-rbac-proxy@sha256:c39eda4bd9f128142d32cc613d18f5cdf329b66284e44e8eb2af5c8ca3b17be0
+      - registry.redhat.io/openshift3/ose-kube-rbac-proxy:v3.11.43
+      sizeBytes: 487282756
+    - names:
+      - registry.redhat.io/openshift3/ose-metrics-server@sha256:5b59be205adceecc9d9ebb559166cfaa33140c746bed71e62430d83d79bbfe76
+      - registry.redhat.io/openshift3/ose-metrics-server:v3.11.43
+      sizeBytes: 293790718
+    - names:
+      - registry.redhat.io/openshift3/ose-logging-fluentd@sha256:7602ff09101a454ea077ca736388fb6a5cc69e8b43c2bb4fa3f8fbe13ec55499
+      - registry.redhat.io/openshift3/ose-logging-fluentd:v3.11.43
+      sizeBytes: 288748354
+    - names:
+      - registry.redhat.io/openshift3/ose-operator-lifecycle-manager@sha256:059cb826e68020a7aea3042a70917c00e709919f8c95125eae7430a55ad3ba61
+      - registry.redhat.io/openshift3/ose-operator-lifecycle-manager:v3.11.43
+      sizeBytes: 282824436
+    - names:
+      - registry.redhat.io/openshift3/ose-pod@sha256:12fe5af7f275eaca15d1a62fa90b79722052575a0d6884ba4dcfa7340e97d7de
+      - registry.redhat.io/openshift3/ose-pod:v3.11.43
+      sizeBytes: 238112029
+    - names:
+      - registry.redhat.io/openshift3/prometheus-node-exporter@sha256:8994a5cc30385e386b70e650e16726c82c42056b0915b0faa5e3109b31de6012
+      - registry.redhat.io/openshift3/prometheus-node-exporter:v3.11.43
+      sizeBytes: 224930707
+    nodeInfo:
+      architecture: amd64
+      bootID: be3ed87e-1312-46af-9591-d52b0ed58ac1
+      containerRuntimeVersion: docker://1.13.1
+      kernelVersion: 3.10.0-1062.12.1.el7.x86_64
+      kubeProxyVersion: v1.11.0+d4cacc0
+      kubeletVersion: v1.11.0+d4cacc0
+      machineID: f0448fbfa054459f82e82c810db44a90
+      operatingSystem: linux
+      osImage: Red Hat Enterprise Linux Server 7.7 (Maipo)
+      systemUUID: EC269A32-C9FC-2A8F-C1C2-56D127AFD335
+- apiVersion: v1
+  kind: Node
+  metadata:
+    annotations:
+      node.openshift.io/md5sum: 1a52031a4ff81d40a9ba251ee4b13e7c
+      volumes.kubernetes.io/controller-managed-attach-detach: "true"
+    creationTimestamp: "2021-03-16T17:41:31Z"
+    labels:
+      beta.kubernetes.io/arch: amd64
+      beta.kubernetes.io/os: linux
+      kubernetes.io/hostname: node2.337c.internal
+      logging-infra-fluentd: "true"
+      node-role.kubernetes.io/compute: "true"
+      runtime: docker
+    name: node2.337c.internal
+    resourceVersion: "11382"
+    selfLink: /api/v1/nodes/node2.337c.internal
+    uid: d7dbc4fa-867e-11eb-9fab-0e81980b822d
+  spec: {}
+  status:
+    addresses:
+    - address: 192.168.0.224
+      type: InternalIP
+    - address: node2.337c.internal
+      type: Hostname
+    allocatable:
+      cpu: "8"
+      hugepages-1Gi: "0"
+      hugepages-2Mi: "0"
+      memory: 32676664Ki
+      pods: "160"
+    capacity:
+      cpu: "8"
+      hugepages-1Gi: "0"
+      hugepages-2Mi: "0"
+      memory: 32779064Ki
+      pods: "160"
+    conditions:
+    - lastHeartbeatTime: "2021-03-17T12:20:01Z"
+      lastTransitionTime: "2021-03-16T17:41:31Z"
+      message: kubelet has sufficient disk space available
+      reason: KubeletHasSufficientDisk
+      status: "False"
+      type: OutOfDisk
+    - lastHeartbeatTime: "2021-03-17T12:20:01Z"
+      lastTransitionTime: "2021-03-16T17:41:31Z"
+      message: kubelet has sufficient memory available
+      reason: KubeletHasSufficientMemory
+      status: "False"
+      type: MemoryPressure
+    - lastHeartbeatTime: "2021-03-17T12:20:01Z"
+      lastTransitionTime: "2021-03-16T17:41:31Z"
+      message: kubelet has no disk pressure
+      reason: KubeletHasNoDiskPressure
+      status: "False"
+      type: DiskPressure
+    - lastHeartbeatTime: "2021-03-17T12:20:01Z"
+      lastTransitionTime: "2021-03-16T17:41:31Z"
+      message: kubelet has sufficient PID available
+      reason: KubeletHasSufficientPID
+      status: "False"
+      type: PIDPressure
+    - lastHeartbeatTime: "2021-03-17T12:20:01Z"
+      lastTransitionTime: "2021-03-17T12:08:10Z"
+      message: kubelet is posting ready status
+      reason: KubeletReady
+      status: "True"
+      type: Ready
+    daemonEndpoints:
+      kubeletEndpoint:
+        Port: 10250
+    images:
+    - names:
+      - registry.redhat.io/openshift3/ose-node@sha256:e27ac7a2530cb9524ef656e74a55af34c4c5ec638ad37ba2da8071eba60914c7
+      - registry.redhat.io/openshift3/ose-node:v3.11.43
+      sizeBytes: 1169729671
+    - names:
+      - registry.redhat.io/openshift3/ose-kube-rbac-proxy@sha256:c39eda4bd9f128142d32cc613d18f5cdf329b66284e44e8eb2af5c8ca3b17be0
+      - registry.redhat.io/openshift3/ose-kube-rbac-proxy:v3.11.43
+      sizeBytes: 487282756
+    - names:
+      - registry.redhat.io/openshift3/metrics-schema-installer@sha256:fec3e89e8b94569566bb8a83babd997b96054b55ad0dfb9739a246d9956de600
+      - registry.redhat.io/openshift3/metrics-schema-installer:v3.11.43
+      sizeBytes: 448042680
+    - names:
+      - registry.redhat.io/openshift3/ose-logging-fluentd@sha256:7602ff09101a454ea077ca736388fb6a5cc69e8b43c2bb4fa3f8fbe13ec55499
+      - registry.redhat.io/openshift3/ose-logging-fluentd:v3.11.43
+      sizeBytes: 288748354
+    - names:
+      - registry.redhat.io/openshift3/ose-operator-lifecycle-manager@sha256:059cb826e68020a7aea3042a70917c00e709919f8c95125eae7430a55ad3ba61
+      - registry.redhat.io/openshift3/ose-operator-lifecycle-manager:v3.11.43
+      sizeBytes: 282824436
+    - names:
+      - registry.redhat.io/openshift3/ose-pod@sha256:12fe5af7f275eaca15d1a62fa90b79722052575a0d6884ba4dcfa7340e97d7de
+      - registry.redhat.io/openshift3/ose-pod:v3.11.43
+      sizeBytes: 238112029
+    - names:
+      - registry.redhat.io/openshift3/prometheus-node-exporter@sha256:8994a5cc30385e386b70e650e16726c82c42056b0915b0faa5e3109b31de6012
+      - registry.redhat.io/openshift3/prometheus-node-exporter:v3.11.43
+      sizeBytes: 224930707
+    nodeInfo:
+      architecture: amd64
+      bootID: 627cfef7-72ab-42f0-94cd-5a3b0c6ecacd
+      containerRuntimeVersion: docker://1.13.1
+      kernelVersion: 3.10.0-1062.12.1.el7.x86_64
+      kubeProxyVersion: v1.11.0+d4cacc0
+      kubeletVersion: v1.11.0+d4cacc0
+      machineID: 0665abd17b554cfb998448f777c40a87
+      operatingSystem: linux
+      osImage: Red Hat Enterprise Linux Server 7.7 (Maipo)
+      systemUUID: EC242953-97AF-921B-12B8-D6B781D3556D
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
