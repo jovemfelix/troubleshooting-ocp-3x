@@ -48,4 +48,7 @@ oc get nodes -o yaml > nodes.yaml
 
 1. Troubleshooting OpenShift Clusters and [Workloads](https://towardsdatascience.com/troubleshooting-openshift-clusters-and-workloads-382664018935)
 2. [23](https://medium.com/faun/kubectl-commands-cheatsheet-43ce8f13adfb) Advanced kubectl commands
+3. kubectl [Cheat](https://kubernetes.io/docs/reference/kubectl/cheatsheet/) Sheet
+4. [Types](https://www.bluematador.com/blog/kubernetes-events-explained) of Kubernetes Events
+5. Oficial [documentation](https://docs.openshift.com/container-platform/3.11/dev_guide/events.html) Events 
 
