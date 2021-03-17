@@ -23,6 +23,16 @@ if [[ ${NODES_NOT_SCHEDULED_OR_READY_SIZE} != '0' ]]; then
   echo "${HEADER%;*}\n${BODY#*;}\n"
 fi
 
+# check project events that are not (Normal)
+EVENT_NOT_NORMAL_SIZE=$(oc get events --field-selector type!=Normal --ignore-not-found | wc -l | xargs)
+
+if [[ ${EVENT_NOT_NORMAL_SIZE} != '0' ]]; then
+  TITLE="[EVENT_NOT_NORMAL_SIZE] : ${EVENT_NOT_NORMAL_SIZE}"
+  HEADER="=======\n${TITLE}\n-------;----------"
+  BODY=$(oc get events --field-selector type!=Normal)
+  echo "${HEADER%;*}\n${BODY#*;}\n"
+fi
+
 ## Explorar status dos nodes
 #tail nodes <> not Ready
 #tail pods <> not Running | Completed
