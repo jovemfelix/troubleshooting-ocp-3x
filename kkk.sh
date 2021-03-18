@@ -2,10 +2,6 @@
 
 THIS_SCRIPT=$(basename -- "$0")
 
-TITLE="[NAMESPACE] : $(oc project -q)"
-HEADER="=======\n${TITLE}\n-------;----------"
-echo "${HEADER%;*}\n"
-
 # check nodes unscheduled
 NODES_UNSCHEDULABLE_SIZE=$(oc get nodes --field-selector spec.unschedulable=true | awk 'FNR > 1  {print}' | wc -l | xargs)
 
@@ -25,6 +21,10 @@ if [[ ${NODES_NOT_SCHEDULED_OR_READY_SIZE} != '0' ]]; then
   BODY=$(oc get nodes | awk 'FNR > 1 {if ($2!="Ready" && $2 !~ /SchedulingDisabled/)  print}')
   echo "${HEADER%;*}\n${BODY#*;}\n"
 fi
+
+TITLE="[NAMESPACE] : $(oc project -q)"
+HEADER="=======\n${TITLE}\n-------;----------"
+echo "${HEADER%;*}\n"
 
 # check project events that are not (Normal)
 EVENT_NOT_NORMAL_SIZE=$(oc get events --field-selector type!=Normal --ignore-not-found | wc -l | xargs)
