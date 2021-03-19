@@ -31,21 +31,21 @@ EVENT_NOT_NORMAL_SIZE=$(oc get events --field-selector type!=Normal --ignore-not
 if [[ ${EVENT_NOT_NORMAL_SIZE} != '0' ]]; then
   TITLE="[EVENT_NOT_NORMAL_SIZE] : ${EVENT_NOT_NORMAL_SIZE}"
   HEADER="=======\n${TITLE}\n-------;----------"
-  BODY=$(oc get events --field-selector type!=Normal)
+  BODY=$(oc get events --field-selector type!=Normal --sort-by='.metadata.creationTimestamp')
   printf "${HEADER%;*}\n${BODY#*;}\n"
 fi
 
 # check pods with the state that are not (Running)
-POD_NOT_RUNNIG_SIZE=$(oc get pods --field-selector=status.phase!=Running --ignore-not-found | awk 'FNR > 1 {if ($3!="Completed") print}'| wc -l | xargs)
+POD_NOT_RUNNIG_SIZE=$(oc get pods --ignore-not-found | awk 'FNR > 1 {if ($3!="Completed" && $3!="Running") print}'| wc -l | xargs)
 
 if [[ ${POD_NOT_RUNNIG_SIZE} != '0' ]]; then
   TITLE="[POD_NOT_RUNNIG_SIZE] : ${POD_NOT_RUNNIG_SIZE}"
   HEADER="=======\n${TITLE}\n-------;----------"
-  BODY=$(oc get pods --field-selector=status.phase!=Running | awk 'FNR > 1 {if ($3!="Completed") print}')
+  BODY=$(oc get pods --ignore-not-found | awk 'FNR > 1 {if ($3!="Completed" && $3!="Running") print}')
   printf "${HEADER%;*}\n${BODY#*;}\n"
 fi
 
-for POD in $(oc get pods --field-selector=status.phase!=Running --ignore-not-found | awk 'FNR > 1 {if ($3!="Completed") print $1}') ; do
+for POD in $(oc get pods --ignore-not-found | awk 'FNR > 1 {if ($3!="Completed" && $3!="Running") print $1}') ; do
   TITLE="[POD_NAME] : ${POD}"
   HEADER="=======\n${TITLE}\n-------;----------"
   BODY=$(oc logs ${POD})

@@ -55,12 +55,87 @@ oc get nodes -o yaml > nodes.yaml
 
 ## labm001
 
+nao foi para frente
+
 ```shell
 oc new-project labm001
 oc -n openshift get secret imagestreamsecret --export -o yaml | oc apply -f -
 
 oc new-app --docker-image=quay.io/redhattraining/php-hello-dockerfile --name=php-hello
 ```
+
+
+
+## labm002
+
+https://role.rhu.redhat.com/rol-rhu/app/courses/do288-4.5/pages/ch01s10
+
+```
+node js com package.json inválido
+```
+
+
+
+## labm003
+
+### setup
+
+```shell
+GITHUB_USER=jovemfelix
+LAB_NAME=elvis
+oc new-app --name elvis https://github.com/${GITHUB_USER}/DO288-apps --context-dir hello-java
+```
+
+### diagnostic
+
+```shell
+oc get $(oc get pod -lapp=${LAB_NAME} -oname) -o yaml | oc adm policy scc-subject-review -f -
+```
+
+### solution
+
+```shell
+oc create serviceaccount ${LAB_NAME}-sa
+oc adm policy add-scc-to-user anyuid -z ${LAB_NAME}-sa
+# oc patch dc/elvis --patch '{"spec":{"template":{"spec":{"serviceAccountName": "elvis-sa"}}}}'
+
+# passo-01
+oc patch dc ${LAB_NAME} -p "spec:
+  template:
+    spec:
+      serviceAccountName: ${LAB_NAME}"
+
+# passo-02
+oc patch dc ${LAB_NAME} -p "spec:
+  template:
+    spec:
+      serviceAccountName: ${LAB_NAME}-sa"
+
+printf "\n\thttps://`oc get route ${LAB_NAME} -o template --template {{.spec.host}}/api/hello`\n"
+```
+
+
+
+## labm004
+
+### setup
+
+```shell
+GITHUB_USER=jovemfelix
+LAB_NAME=roberto
+oc new-app --name $LAB_NAME https://github.com/$GITHUB_USER/DO288-apps --context-dir post-commit
+oc expose svc/$LAB_NAME
+
+LAB_NAME=carlos
+oc new-app --name $LAB_NAME https://github.com/$GITHUB_USER/DO288-apps --context-dir builds-for-managers
+oc expose svc/$LAB_NAME
+
+oc set build-hook bc/roberto --post-commit --command -- \
+    bash -c "curl -s -S -i -X POST http://builds-for-managers-${RHT_OCP4_DEV_USER}-post-commit.${RHT_OCP4_WILDCARD_DOMAIN}/api/builds -f -d 'developer=\${DEVELOPER}&git=\${OPENSHIFT_BUILD_SOURCE}&project=\${OPENSHIFT_BUILD_NAMESPACE}'"
+
+```
+
+### diagnostic
 
 
 
