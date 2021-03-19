@@ -2,7 +2,7 @@
 set -e
 
 # check nodes unscheduled
-NODES_UNSCHEDULABLE_SIZE=$(oc get nodes --field-selector spec.unschedulable=true | awk 'FNR > 1  {print}' | wc -l | xargs)
+NODES_UNSCHEDULABLE_SIZE=$(oc get nodes --field-selector spec.unschedulable=true --ignore-not-found  | awk 'FNR > 1  {print}' | wc -l | xargs)
 
 if [[ ${NODES_UNSCHEDULABLE_SIZE} != '0' ]]; then
   TITLE="[NODES_UNSCHEDULABLE_SIZE] : ${NODES_UNSCHEDULABLE_SIZE}"
@@ -45,10 +45,10 @@ if [[ ${POD_NOT_RUNNIG_SIZE} != '0' ]]; then
   printf "${HEADER%;*}\n${BODY#*;}\n"
 fi
 
-for POD in $(oc get pods --field-selector=status.phase==!=Running --ignore-not-found | awk 'FNR > 1 {if ($3!="Completed") print $1}') ; do
+for POD in $(oc get pods --field-selector=status.phase!=Running --ignore-not-found | awk 'FNR > 1 {if ($3!="Completed") print $1}') ; do
   TITLE="[POD_NAME] : ${POD}"
   HEADER="=======\n${TITLE}\n-------;----------"
-  BODY=$(oc logs pod ${POD})
+  BODY=$(oc logs ${POD})
   printf "${HEADER%;*}\n${BODY#*;}\n"
 done
 ## loop all project Pods to get event
